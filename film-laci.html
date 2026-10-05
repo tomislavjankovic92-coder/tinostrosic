@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Laci bjezi u Madarsku / Laci&#x27;s Great Escape — Tin Ostrošić</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap">
+<style>
+:root{color-scheme:light; --bg:#F8F8F8; --ink:#666666; --dark:#222222; --accent:#FF4E00; --white:#FFFFFF;
+  --font:"Montserrat","Helvetica Neue",Arial,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg); color:var(--ink); font-family:var(--font); font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased}
+a{color:inherit; text-decoration:none}
+a:focus-visible,button:focus-visible{outline:1px solid var(--accent); outline-offset:4px}
+img{display:block; max-width:100%}
+.caps{text-transform:uppercase; letter-spacing:4px}
+
+/* header */
+.hdr{position:fixed; top:0; left:0; right:0; z-index:20; height:64px; padding:env(safe-area-inset-top,0px) clamp(16px,6vw,96px) 0;
+  display:flex; align-items:center; gap:24px; color:var(--white); transition:background .35s, color .35s}
+.hdr.solid{background:var(--bg); color:var(--ink)}
+.hdr.solid .logo{color:var(--dark)}
+.logo{display:grid; gap:4px; text-transform:uppercase; white-space:nowrap}
+.logo .nm{font-weight:800; font-size:17px; letter-spacing:4px; line-height:1}
+.logo .role{font-weight:300; font-size:8px; letter-spacing:2px; line-height:1}
+.nav{display:flex; flex:1; justify-content:flex-end; gap:clamp(20px,2.8vw,40px)}
+.nav .grp{display:flex; gap:clamp(20px,2.8vw,40px)}
+.nav a{position:relative; font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; padding-block:6px}
+.nav a::after{content:""; position:absolute; left:0; bottom:0; width:26px; height:1px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+@media (max-width:760px){
+  .hdr{height:auto; align-items:flex-start; justify-content:space-between; gap:16px; padding-block:calc(env(safe-area-inset-top,0px) + 16px) 12px; padding-inline:18px}
+  .logo .nm{font-size:14px; letter-spacing:3px}
+  .logo .role{font-size:7px; letter-spacing:1.5px}
+  .nav{flex:none; flex-direction:column; align-items:flex-end; gap:4px}
+  .nav .grp{flex-direction:column; align-items:flex-end; gap:4px}
+  .nav a{font-size:9px; letter-spacing:3px; padding-block:2px}
+  .nav a::after{left:auto; right:0; transform-origin:right}
+}
+
+/* full-screen stage (hero / player) */
+.stage{position:relative; height:100vh; height:100svh; min-height:420px; background:#000; overflow:hidden; color:var(--white)}
+.stage::after{content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0) 22%,rgba(0,0,0,0) 78%,rgba(0,0,0,.35))}
+.slide{position:absolute; inset:0; opacity:0; transition:opacity 1.6s ease}
+.slide.on{opacity:1}
+.slide img{width:100%; height:100%; object-fit:cover}
+.down{position:absolute; left:50%; bottom:22px; transform:translateX(-50%); z-index:3; display:grid; justify-items:center; gap:6px; font-size:9px; letter-spacing:4px; text-transform:uppercase}
+.down svg{width:14px; height:9px; animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(4px)}}
+.tag{position:absolute; right:clamp(16px,6vw,96px); bottom:26px; z-index:3; display:flex; align-items:center; gap:10px; font-size:10px; font-weight:600; letter-spacing:1px; text-transform:uppercase}
+.tag::before{content:""; width:7px; height:7px; border-top:1.5px solid var(--accent); border-right:1.5px solid var(--accent); transform:rotate(45deg)}
+
+/* grid */
+.works{padding:30px clamp(12px,2.4vw,30px) 40px}
+.grid{display:grid; grid-template-columns:repeat(2,1fr); gap:44px 30px}
+@media (max-width:700px){.grid{grid-template-columns:1fr; gap:34px}}
+.card{display:grid; gap:16px; text-align:center}
+.card .ph{aspect-ratio:16/9; overflow:hidden; background:#e9e9e9}
+.card img{width:100%; height:100%; object-fit:cover; transition:opacity .4s, transform 1s cubic-bezier(.2,.7,.2,1)}
+.card:hover img{opacity:.85; transform:scale(1.02)}
+.card h3{margin:0; font-size:11px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--ink)}
+.card p{margin:4px 0 0; font-size:9px; letter-spacing:2px; text-transform:uppercase}
+.sec+.sec{margin-top:90px}
+.sec-h{margin:10px 0 30px; text-align:center; font-size:10px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--ink)}
+.sec-h a{position:relative; padding-block:6px}
+.sec-h a::after{content:""; position:absolute; left:0; bottom:0; width:26px; height:1px; background:var(--accent); transform:scaleX(0); transform-origin:left; transition:transform .3s}
+.sec-h a:hover::after{transform:scaleX(1)}
+@media (max-width:760px){.sec-h{font-size:9px; letter-spacing:3px; margin-bottom:22px} .sec+.sec{margin-top:64px}}
+@media (max-width:700px){.card h3{font-size:9px; letter-spacing:2.5px; line-height:1.6} .card{gap:12px}}
+.page-title{padding:120px clamp(16px,6vw,96px) 10px; text-align:center; font-size:11px; font-weight:600; letter-spacing:4px; text-transform:uppercase; margin:0}
+
+/* info */
+.info{max-width:720px; margin:0 auto; padding:140px clamp(16px,6vw,40px) 60px; text-align:center}
+.info h2{margin:0 0 22px; font-size:11px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:var(--dark)}
+.info section+section{margin-top:80px}
+.contact-list{display:grid; gap:14px; justify-items:center; font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase}
+.contact-list a:hover{color:var(--accent)}
+.vimeo{display:inline-flex; align-items:center; gap:10px}
+.vimeo svg{width:16px; height:16px}
+
+/* credits (project page) */
+.credits{max-width:720px; margin:0 auto; padding:80px clamp(16px,6vw,40px) 30px; display:grid; gap:14px}
+.credits .row{display:grid; grid-template-columns:minmax(0,230px) minmax(0,1fr); gap:24px; font-size:9px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; line-height:1.7}
+.credits dt,.credits dd{min-width:0; overflow-wrap:anywhere}
+.credits dt{text-align:right}
+.credits .gap{height:14px}
+.credits dt{margin:0} .credits dd{margin:0}
+.syn{max-width:560px; margin:0 auto; padding:0 clamp(16px,6vw,40px); font-size:11px; letter-spacing:1px; line-height:1.9; text-transform:uppercase; text-align:justify}
+@media (max-width:560px){.credits .row{grid-template-columns:1fr; gap:2px} .credits dt{text-align:left}}
+.player{position:absolute; inset:0; display:grid; place-items:center; padding:80px clamp(0px,4vw,60px) 70px}
+.frame{position:relative; width:100%; max-height:100%; background:#000}
+.frame img,.frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover}
+.pager{display:flex; justify-content:space-between; gap:16px; padding:50px clamp(16px,6vw,96px) 10px; font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase}
+.pager a:hover{color:var(--accent)}
+
+
+.bio{max-width:560px; margin:0 auto; display:grid; gap:14px; font-size:12px; line-height:1.9; letter-spacing:.5px}
+.bio p{margin:0}
+.filmo{margin-top:70px}
+.fh{margin:0 0 30px; font-size:14px; font-weight:700; letter-spacing:5px; color:var(--accent); text-transform:uppercase}
+.filmo .fh:not(:first-child){margin-top:64px}
+.flist{display:grid; gap:34px}
+.fi h4{margin:0; font-size:11px; font-weight:700; letter-spacing:3px; line-height:1.6; color:var(--dark); text-transform:uppercase; text-wrap:balance}
+.fi .fd{margin:6px 0 0; font-size:10px; letter-spacing:1.5px}
+.fi ul{list-style:none; margin:10px 0 0; padding:0; display:grid; gap:4px; font-size:10px; letter-spacing:.5px; line-height:1.6}
+@media (max-width:600px){.bio{font-size:11px} .fi h4{font-size:10px; letter-spacing:2px} .fi .fd,.fi ul{font-size:9px}}
+
+
+@media (max-width:760px){
+  .stage.proj{height:auto; min-height:0}
+  .stage.proj .player{position:relative; padding:120px 0 96px}
+  .stage.proj .frame{width:100% !important}
+  .stage.proj .tag{left:18px; right:18px; bottom:58px; justify-content:center; text-align:center; font-size:9px}
+  .down{bottom:16px}
+}
+
+.about-head{display:flex; flex-direction:column; align-items:center; gap:24px; margin-bottom:34px}
+.about-head h2{margin:0}
+.portrait{width:120px; height:120px; border-radius:50%; object-fit:cover; box-shadow:0 0 0 1px rgba(0,0,0,.08)}
+.info h2.big{font-size:14px; font-weight:700; letter-spacing:5px}
+.contact-list{font-size:12px !important; font-weight:700 !important; color:var(--dark)}
+.contact-list .vimeo svg{width:18px; height:18px}
+@media (max-width:600px){.portrait{width:100px; height:100px} .about-head{gap:20px} .fh,.info h2.big{font-size:12px; letter-spacing:4px} .contact-list{font-size:11px !important}}
+[id]{scroll-margin-top:120px}
+/* pull to refresh (touch) */
+@media (hover:none) and (pointer:coarse){ html,body{overscroll-behavior-y:contain} }
+.ptr{position:fixed; left:50%; top:calc(env(safe-area-inset-top,0px) + 10px); z-index:50; width:36px; height:36px; margin-left:-18px; border-radius:50%;
+  background:#fff; box-shadow:0 2px 10px rgba(0,0,0,.18); display:grid; place-items:center; transform:translateY(-70px); opacity:0; pointer-events:none}
+.ptr svg{width:17px; height:17px; color:var(--ink)}
+.ptr.ready svg{color:var(--accent)}
+.ptr.spin svg{animation:ptrspin .8s linear infinite}
+@keyframes ptrspin{to{transform:rotate(360deg)}}
+
+
+
+/* custom video player */
+.vp{position:absolute; inset:0; background:#000; overflow:hidden; color:#fff; font-family:var(--font); user-select:none; -webkit-user-select:none}
+.vp video{position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:#000; display:block}
+.vp-big{position:absolute; left:50%; top:50%; width:74px; height:74px; margin:-37px 0 0 -37px; border-radius:50%; border:1px solid rgba(255,255,255,.75);
+  background:rgba(0,0,0,.28); color:#fff; display:grid; place-items:center; cursor:pointer; transition:transform .3s, background .3s, border-color .3s, opacity .3s; z-index:3}
+.vp-big svg{width:20px; height:20px; margin-left:4px}
+.vp-big{box-shadow:0 0 0 0 rgba(255,255,255,0); transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .45s, border-color .3s, opacity .3s}
+.vp-big:hover,.vp-big:focus-visible{background:rgba(0,0,0,.28); border-color:#fff; transform:scale(1.07); box-shadow:0 0 0 7px rgba(255,255,255,.14)}
+.vp-big:active{transform:scale(.97)}
+.vp.playing .vp-big{opacity:0; pointer-events:none}
+.vp.nosrc .vp-bar{opacity:.35; pointer-events:none}
+.vp-msg{position:absolute; left:0; right:0; bottom:46%; transform:translateY(64px); text-align:center; font-size:9px; font-weight:600; letter-spacing:4px; text-transform:uppercase; z-index:3; text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.vp-bar{position:absolute; left:0; right:0; bottom:0; z-index:4; display:flex; align-items:center; gap:16px; padding:28px 18px 14px;
+  background:linear-gradient(0deg,rgba(0,0,0,.7),rgba(0,0,0,0)); transition:opacity .4s}
+.vp.idle.playing .vp-bar{opacity:0}
+.vp.idle.playing{cursor:none}
+.vp-bar button{background:none; border:0; padding:4px; color:#fff; cursor:pointer; display:grid; place-items:center; opacity:.9}
+.vp-bar button:hover{opacity:1; color:var(--accent)}
+.vp-bar svg{width:16px; height:16px}
+.vp-time{font-size:9px; font-weight:600; letter-spacing:2px; white-space:nowrap; font-variant-numeric:tabular-nums; min-width:88px}
+.vp-track{position:relative; flex:1; height:16px; display:flex; align-items:center; cursor:pointer}
+.vp-track::before{content:""; position:absolute; left:0; right:0; height:1px; background:rgba(255,255,255,.3)}
+.vp-buf,.vp-prog{position:absolute; left:0; height:1px; width:0}
+.vp-buf{background:rgba(255,255,255,.55)}
+.vp-prog{background:var(--accent); height:2px}
+.vp-prog::after{content:""; position:absolute; right:-5px; top:-4px; width:10px; height:10px; border-radius:50%; background:var(--accent); transform:scale(0); transition:transform .2s}
+.vp-track:hover .vp-prog::after,.vp-track.drag .vp-prog::after{transform:scale(1)}
+.vp-seek{position:absolute; inset:0; width:100%; opacity:0; cursor:pointer; margin:0}
+.vp .ico-pause,.vp.playing .ico-play,.vp .ico-muted,.vp.muted .ico-vol,.vp .ico-exit,.vp.fs .ico-full{display:none}
+.vp.playing .ico-pause,.vp.muted .ico-muted,.vp.fs .ico-exit{display:block}
+.vp:fullscreen .frame{width:100%}
+@media (max-width:600px){.vp-big{width:60px; height:60px; margin:-30px 0 0 -30px} .vp-bar{gap:10px; padding:22px 10px 8px} .vp-time{min-width:0; font-size:8px; letter-spacing:1px}}
+
+/* footer */
+footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:40px clamp(16px,6vw,96px) 40px; font-size:9px; letter-spacing:3px; text-transform:uppercase}
+.credit{color:var(--dark); font-weight:700; border-bottom:1px solid rgba(34,34,34,.35); transition:color .2s, border-color .2s}
+.credit:hover{color:#FF7F50; border-color:#FF7F50}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .slide,.card img{transition:none} .down svg{animation:none}}
+</style></head>
+<body>
+<header class="hdr" id="hdr">
+  <a class="logo" href="index.html"><span class="nm">Tin Ostrošić</span><span class="role">Cinematographer</span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="grp"><a href="film.html" aria-current="page">Film</a><a href="commercial.html">Commercial</a></div>
+    <div class="grp"><a href="info.html">About me</a></div>
+  </nav>
+</header>
+<section class="stage proj">
+  <div class="player"><div class="frame" style="aspect-ratio:328/240; width:min(100%, calc((100svh - 150px) * 328 / 240))">
+    <div class="vp" aria-label="Video player: Laci bjezi u Madarsku / Laci&#x27;s Great Escape">
+      <video preload="metadata" playsinline poster="img/v-laci.jpg"><source src="video/laci.mp4" type="video/mp4"></video>
+      <button class="vp-big" type="button" aria-label="Play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg></button>
+      <p class="vp-msg" hidden>Video coming soon</p>
+      <div class="vp-bar">
+        <button class="vp-play" type="button" aria-label="Play / pause"><svg class="ico-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><svg class="ico-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 4.5h4v15h-4zM13.5 4.5h4v15h-4z" fill="currentColor"/></svg></button>
+        <span class="vp-time">0:00 / 0:00</span>
+        <div class="vp-track"><div class="vp-buf"></div><div class="vp-prog"></div><input class="vp-seek" type="range" min="0" max="1000" value="0" aria-label="Seek"></div>
+        <button class="vp-mute" type="button" aria-label="Mute"><svg class="ico-vol" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><svg class="ico-muted" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16.5 9.5l5 5m0-5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+        <button class="vp-fs" type="button" aria-label="Fullscreen"><svg class="ico-full" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg class="ico-exit" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+      </div>
+    </div>
+  </div></div>
+  <a class="down" href="#credits"><svg viewBox="0 0 14 9" aria-hidden="true"><path d="M1 1l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span>Credits</span></a>
+  <span class="tag">Laci bjezi u Madarsku / Laci&#x27;s Great Escape</span>
+</section>
+<main id="credits">
+  <dl class="credits"><div class="row"><dt>Director:</dt><dd>David Gašo</dd></div><div class="row"><dt>Screenplay:</dt><dd>David Gašo</dd></div><div class="row"><dt>Cinematography:</dt><dd>Tin Ostrošić</dd></div><div class="row"><dt>Editing:</dt><dd>Ema Veseljak</dd></div><div class="row"><dt>Sound Design:</dt><dd>David Gašo</dd></div><div class="row"><dt>Producer:</dt><dd>Marta Eva Mećava</dd></div><div class="row"><dt>Production:</dt><dd>ADU, 2020</dd></div></dl>
+  
+  <nav class="pager" aria-label="More work"><a href="film-palikuca.html">← palikuća / incendiary</a><a href="commercial-ktc.html">KTC / TVC →</a></nav>
+</main>
+<footer>
+  <span>© 2026 Tin Ostrošić</span>
+  <span>Website by <a href="https://kreirai.hr" class="credit">KreirAI</a></span>
+</footer>
+<div class="ptr" id="ptr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 4v5h-5"/></svg></div>
+<script>(function(){if('scrollRestoration' in history)history.scrollRestoration='manual';function go(){var r=document.documentElement,b=r.style.scrollBehavior;r.style.scrollBehavior='auto';var t=location.hash&&location.hash!=='#about'&&document.getElementById(location.hash.slice(1));if(t){t.scrollIntoView()}else{window.scrollTo(0,0)}r.style.scrollBehavior=b}go();document.addEventListener('DOMContentLoaded',go);window.addEventListener('load',function(){go();setTimeout(go,80)});window.addEventListener('pageshow',go);var h=document.getElementById('hdr');var st=document.querySelector('.stage');function upd(){if(!st){h.classList.add('solid');return}h.classList.toggle('solid',window.scrollY>st.offsetHeight-70)}window.addEventListener('scroll',upd,{passive:true});upd();var ptr=document.getElementById('ptr'),sy=null,dist=0,TH=80,busy=false;function top0(){return (window.scrollY||document.documentElement.scrollTop)<=0}function paint(d){var p=Math.min(d/TH,1);ptr.style.opacity=p;ptr.style.transform='translateY('+(Math.min(d,TH*1.3)*0.7-70)+'px) rotate('+(p*270)+'deg)';ptr.classList.toggle('ready',d>=TH)}window.addEventListener('touchstart',function(e){if(busy||e.touches.length!==1||!top0()){sy=null;return}sy=e.touches[0].clientY;dist=0},{passive:true});window.addEventListener('touchmove',function(e){if(sy===null)return;var d=e.touches[0].clientY-sy;if(d<=0||!top0()){dist=0;paint(0);return}dist=d*0.6;paint(dist);if(e.cancelable)e.preventDefault()},{passive:false});window.addEventListener('touchend',function(){if(sy===null)return;sy=null;if(dist>=TH){busy=true;ptr.classList.add('spin');ptr.style.transition='transform .2s';ptr.style.transform='translateY(10px)';setTimeout(function(){location.reload()},350)}else{ptr.style.transition='transform .25s, opacity .25s';paint(0);setTimeout(function(){ptr.style.transition=''},260)}dist=0});
+document.querySelectorAll('.vp').forEach(function(vp){
+  var v=vp.querySelector('video'),big=vp.querySelector('.vp-big'),bar=vp.querySelector('.vp-bar'),
+      btn=vp.querySelector('.vp-play'),mute=vp.querySelector('.vp-mute'),fsb=vp.querySelector('.vp-fs'),
+      seek=vp.querySelector('.vp-seek'),prog=vp.querySelector('.vp-prog'),buf=vp.querySelector('.vp-buf'),
+      time=vp.querySelector('.vp-time'),msg=vp.querySelector('.vp-msg'),track=vp.querySelector('.vp-track'),t=null,missing=false;
+  function fmt(s){if(!isFinite(s))return '0:00';s=Math.floor(s);return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
+  function upd(){var d=v.duration||0,c=v.currentTime||0,p=d?c/d:0;prog.style.width=(p*100)+'%';seek.value=Math.round(p*1000);time.textContent=fmt(c)+' / '+fmt(d);
+    if(v.buffered.length&&d){buf.style.width=(v.buffered.end(v.buffered.length-1)/d*100)+'%'}}
+  function noVideo(){missing=true;msg.hidden=false;vp.classList.remove('playing');vp.classList.add('nosrc')}
+  function toggle(){if(missing){msg.hidden=false;return}if(v.paused){var pr=v.play();if(pr&&pr.catch)pr.catch(function(){if(v.error||v.networkState===3)noVideo()});setTimeout(function(){if(v.readyState<2&&(v.error||v.networkState===3||v.networkState===1)){v.pause();noVideo()}},1500)}else v.pause()}
+  function wake(){vp.classList.remove('idle');clearTimeout(t);t=setTimeout(function(){vp.classList.add('idle')},2200)}
+  v.addEventListener('error',noVideo,true);var srcEl=v.querySelector('source');if(srcEl)srcEl.addEventListener('error',noVideo);
+  v.addEventListener('play',function(){vp.classList.add('playing');wake()});
+  v.addEventListener('pause',function(){vp.classList.remove('playing');vp.classList.remove('idle')});
+  v.addEventListener('ended',function(){vp.classList.remove('playing')});
+  ['timeupdate','loadedmetadata','progress','durationchange'].forEach(function(ev){v.addEventListener(ev,upd)});
+  big.addEventListener('click',toggle);btn.addEventListener('click',toggle);
+  v.addEventListener('click',toggle);
+  seek.addEventListener('input',function(){if(v.duration){v.currentTime=seek.value/1000*v.duration;upd()}});
+  seek.addEventListener('pointerdown',function(){track.classList.add('drag')});
+  window.addEventListener('pointerup',function(){track.classList.remove('drag')});
+  mute.addEventListener('click',function(){v.muted=!v.muted;vp.classList.toggle('muted',v.muted)});
+  fsb.addEventListener('click',function(){var d=document;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d)}else{var r=vp.requestFullscreen||vp.webkitRequestFullscreen;if(r){var q=r.call(vp);if(q&&q.catch)q.catch(function(){})}else if(v.webkitEnterFullscreen){v.webkitEnterFullscreen()}}});
+  document.addEventListener('fullscreenchange',function(){vp.classList.toggle('fs',document.fullscreenElement===vp)});
+  vp.addEventListener('pointermove',wake);vp.addEventListener('touchstart',wake,{passive:true});
+  vp.tabIndex=0;
+  vp.addEventListener('keydown',function(e){var k=e.key;
+    if(k===' '||k==='k'){e.preventDefault();toggle()}
+    else if(k==='ArrowRight'){v.currentTime=Math.min((v.duration||0),v.currentTime+5)}
+    else if(k==='ArrowLeft'){v.currentTime=Math.max(0,v.currentTime-5)}
+    else if(k==='m'){mute.click()} else if(k==='f'){fsb.click()}});
+  upd();
+});
+})();</script>
+</body></html>
