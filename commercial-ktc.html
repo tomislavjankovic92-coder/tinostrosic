@@ -169,7 +169,7 @@ img{display:block; max-width:100%}
 .vp-vtrack:hover .vp-vfill,.vp-vtrack:hover .vp-vfill::after{background:var(--accent)}
 .vp-vrange{position:absolute; inset:0; width:100%; opacity:0; cursor:pointer; margin:0}
 .vp.novol .vp-vtrack{display:none}
-@media (max-width:600px){.vp-vtrack{width:50px} .vp-vol{gap:4px}}
+@media (hover:none) and (pointer:coarse){.vp-vtrack{display:none}}
 .vp .ico-pause,.vp.playing .ico-play,.vp .ico-muted,.vp.muted .ico-vol,.vp .ico-exit,.vp.fs .ico-full{display:none}
 .vp.playing .ico-pause,.vp.muted .ico-muted,.vp.fs .ico-exit{display:block}
 .vp:fullscreen .frame{width:100%}
